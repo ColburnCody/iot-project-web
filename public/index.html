@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>RPI Dashboard</title>
+</head>
+
+<body>
+  <div class="bg-primary text-white d-flex justify-content-center">
+    <h1>My Rpi Dashboard</h1>
+  </div>
+
+  <div class="w-100 d-flex justify-content-center" style="background-color: lightblue; ">
+    <form id="form-signin" class="pre-auth">
+      <h3>Sign in, Please!</h3>
+      <div class="form-outline mb-4 ">
+        <input type="email" id="email" class="form-control " placeholder="email ">
+      </div>
+      <div class="form-outline mb-4 ">
+        <input type="password" id="password" class="form-control " placeholder="password ">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button id="button-init-config" type="input" class="btn btn-outline-danger me-3 post-auth">
+      Initial Configuration</button>
+    <button id="button-signout" type="input" class="btn btn-danger me-3 post-auth">
+      Sign Out</button>
+  </div>
+
+  <p class="post-auth" id="root"></p>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDw5qfYNvccXAkGCT5s9baGxAdPAyAQ4Cs",
+      authDomain: "cmsc4313-iot-class-8165a.firebaseapp.com",
+      projectId: "cmsc4313-iot-class-8165a",
+      storageBucket: "cmsc4313-iot-class-8165a.appspot.com",
+      messagingSenderId: "39817785991",
+      appId: "1:39817785991:web:7784ba9d4eb377eee3be22"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
+  <script type="module" src="app.js"></script>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
