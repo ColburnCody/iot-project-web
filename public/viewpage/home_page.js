@@ -46,7 +46,7 @@ export function home_page() {
     </div>
   </div>
   <div>
-      <label id="treat-monitor-label">No requests</label>
+      <label id="treat-monitor-label" style="display: none;">No requests</label>
       </div>
   <br>
   <div>
@@ -63,11 +63,15 @@ export function home_page() {
     const label = e.target.innerHTML;
     if (label == 'Start') {
       e.target.innerHTML = 'Stop';
+      const treatLabel = document.getElementById('treat-monitor-label')
+      treatLabel.style.display = "block";
       // listen to Firestore doc changes
       unsubCameraDoc = attachRealtimeListener(Constants.COLLECTION,
         Constants.DOC_RINOSAS, rinosasListener);
     } else {
       e.target.innerHTML = 'Start';
+      const treatLabel = document.getElementById('treat-monitor-label');
+      treatLabel.style.display = "none";
       if (unsubRINOSASDoc) unsubRINOSASDoc();
     }
   });
