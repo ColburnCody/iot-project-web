@@ -46,7 +46,7 @@ export function home_page() {
     </div>
   </div>
   <div>
-      <label id="treat-monitor-label">${noMonitor}</label>
+      <label id="treat-monitor-label">No requests</label>
       </div>
   <br>
   <div>
@@ -68,8 +68,6 @@ export function home_page() {
         Constants.DOC_RINOSAS, rinosasListener);
     } else {
       e.target.innerHTML = 'Start';
-      const treatLabel = document.getElementById('treat-monitor-label');
-      treatLabel.innerHTML = noMonitor;
       if (unsubRINOSASDoc) unsubRINOSASDoc();
     }
   });
@@ -77,12 +75,12 @@ export function home_page() {
 
   const approveButton = document.getElementById('approve-button')
   approveButton.addEventListener('click', e => {
-    updateDocForTreats({ approval: true, request: false })
+    updateDocForTreats({ approval: "approved", request: false })
   })
 
   const denyButton = document.getElementById('deny-button')
   denyButton.addEventListener('click', e => {
-    updateDocForTreats({ approval: false, request: false })
+    updateDocForTreats({ approval: "denied", request: false })
   })
 
 }
