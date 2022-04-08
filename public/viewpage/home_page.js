@@ -43,10 +43,16 @@ export function home_page() {
       <h5>Start monitor:</h5>
       <button id="button-monitor-button-status" type="input" class="btn btn-outline-primary ms-3">Start</button>
       <br>
-      <label id="treat-monitor-label">${noMonitor}</label>
     </div>
   </div>
+  <div>
+      <label id="treat-monitor-label">${noMonitor}</label>
+      </div>
   <br>
+  <div>
+  <button id="approve-button" type="input" class="btn btn-outline-primary">Approve</button>
+      <button id="deny-button" type="input" class="btn btn-outline-danger">Deny</button>
+  </div>
   `;
 
 
@@ -68,10 +74,25 @@ export function home_page() {
     }
   });
 
+
+  const approveButton = document.getElementById('approve-button')
+  approveButton.addEventListener('click', e => {
+    updateDocForTreats({ approval: true, request: false })
+  })
+
+  const denyButton = document.getElementById('deny-button')
+  denyButton.addEventListener('click', e => {
+    updateDocForTreats({ approval: false, request: false })
+  })
+
 }
 
-
-function rinosasListener() {
+function rinosasListener(doc) {
+  const treatDoc = doc.data();
   const treatLabel = document.getElementById('treat-monitor-label');
-  treatLabel.innerHTML = 'No requests';
+  if (treatDoc['request'] == true) {
+    treatLabel.innerHTML = 'Remi requires a treat';
+  } else if (treatDoc['request'] == false) {
+    treatLabel.innerHTML = 'No requests';
+  }
 }
